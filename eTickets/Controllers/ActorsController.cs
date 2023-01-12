@@ -64,7 +64,7 @@ namespace eTickets.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Edit(int id, Actor actor)
 		{
-            actor.ActorId = id;
+            actor.Id = id;
 			if (!ModelState.IsValid)
 			{
 				return View(actor);
