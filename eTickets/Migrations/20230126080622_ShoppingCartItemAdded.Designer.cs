@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using eTickets.Data;
 
 namespace eTickets.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230126080622_ShoppingCartItemAdded")]
+    partial class ShoppingCartItemAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -207,7 +209,7 @@ namespace eTickets.Migrations
                     b.Property<int>("Amount")
                         .HasColumnType("int");
 
-                    b.Property<int?>("MovieId")
+                    b.Property<int?>("MoiveId")
                         .HasColumnType("int");
 
                     b.Property<string>("ShoppingCartId")
@@ -215,7 +217,7 @@ namespace eTickets.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MovieId");
+                    b.HasIndex("MoiveId");
 
                     b.ToTable("ShoppingCartItems");
                 });
@@ -279,11 +281,11 @@ namespace eTickets.Migrations
 
             modelBuilder.Entity("eTickets.Models.ShoppingCartItem", b =>
                 {
-                    b.HasOne("eTickets.Models.Movie", "Movie")
+                    b.HasOne("eTickets.Models.Movie", "Moive")
                         .WithMany()
-                        .HasForeignKey("MovieId");
+                        .HasForeignKey("MoiveId");
 
-                    b.Navigation("Movie");
+                    b.Navigation("Moive");
                 });
 
             modelBuilder.Entity("eTickets.Models.Actor", b =>
